@@ -3,64 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Promo Code Generator</title>
+    <title>Promo Generator [CeTo]</title>
     <style>
        body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e; 
+    color: #f5f5f5; 
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    overflow: hidden; 
 }
 
 .container {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 500px;
-    width: 100%;
+    background: #2c2c2c; 
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    max-width: 600px;
+    width: calc(100% - 40px); 
+    max-height: calc(100vh - 40px); 
+    margin: 20px; 
+    overflow: auto; 
     text-align: center;
+    box-sizing: border-box; 
 }
 
 h1 {
     margin-bottom: 20px;
+    color: #b39ddb;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #e1bee7; 
 }
 
 select {
     width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #7e57c2; 
+    background-color: #3c3c3c; 
+    color: #f5f5f5; 
 }
 
 button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
+    border: none;
+    color: #fff;
+    transition: background-color 0.3s;
 }
 
+.primary-btn {
+    background-color: #7e57c2; 
+}
 
+.primary-btn:hover {
+    background-color: #5e35b1; 
+}
 
-button:hover {
-    background-color: #0056b3;
+.secondary-btn {
+    background-color: #424242; 
+    margin-top: 20px;
+}
+
+.secondary-btn:hover {
+    background-color: #616161; 
 }
 
 .hidden {
@@ -68,17 +91,17 @@ button:hover {
 }
 
 .progress-bar {
-    background-color: #f0f0f0;
-    border-radius: 5px;
+    background-color: #3c3c3c; 
+    border-radius: 10px;
     overflow: hidden;
     margin-top: 20px;
-    height: 30px;
+    height: 20px;
     position: relative;
 }
 
 .progress-bar div {
     height: 100%;
-    background-color: #007bff;
+    background-color: #7e57c2; 
     width: 0;
     transition: width 0.5s;
 }
@@ -86,149 +109,171 @@ button:hover {
 #progressText {
     margin-top: 10px;
     font-weight: bold;
+    color: #e1bee7; 
 }
 
 .key-item {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 15px;
+    background: #3c3c3c;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .key-item input {
     flex: 1;
     padding: 10px;
     font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #7e57c2; 
+    border-radius: 8px;
+    background-color: #2c2c2c; 
+    color: #f5f5f5; 
     margin-right: 10px;
 }
 
 .copyKeyBtn {
-    background-color: #28a745;
+    background-color: #ab47bc; 
     border: none;
     padding: 10px 20px;
-    color: white;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 .copyKeyBtn:hover {
-    background-color: #218838;
+    background-color: #8e24aa; 
 }
 
 .footer {
     margin-top: 20px;
     font-size: 14px;
+    color: #e1bee7; 
 }
 
 #copyStatus {
     margin-top: 10px;
-    color: green;
+    color: #7e57c2; 
 }
 
-#telegramChannelBtn{
-    background-color: green;
+#copyAllBtn {
+    margin: 5px; 
 }
+
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%; 
+        height: calc(100vh - 20px); 
+        margin: 10px; 
+    }
+}
+     </style>
+    <style>
+        /* Adding styles to hide and show elements */
+        .hidden {
+            display: none;
+        }
     </style>
-    <script src="//api.shareus.io/verify.js" defer></script>
-    <script type="module" src="https://injectshrslinkblog.com/popup/script.js"> </script>
 </head>
 <body>
     <div class="container">
-        <h1>Game Promo Code Generator</h1>
-        <div class="form-group">
-            <label for="gameSelect">Select Game</label>
-            <select id="gameSelect">
-                <option value="1">Riding Extreme 3D</option>
-                <option value="2">Chain Cube 2048</option>
-                <option value="3">My Clone Army</option>
-                <option value="4">Train Miner</option>
-                <option value="5">MergeAway (NEW)</option>
-                <option value="6">Twerk Race (NEW)</option>
+        <h1>Hamster Promo Code Generator [CeTo]</h1>
 
-            </select>
+        <!-- Initial Panel: Shows when the page starts and is hidden during progress -->
+        <div id="initialPanel" class="form-group panel">
+            <div>
+                <label for="gameSelect">Select Game:</label>
+                <select id="gameSelect">
+                    <option value="1">Riding Extreme 3D</option>
+                    <option value="2">Chain Cube 2048</option>
+                    <option value="3">My Clone Army</option>
+                    <option value="4">Train Miner</option>
+                    <option value="5">Merge Away</option>
+                </select>
+            </div>
+            <div>
+                <label for="keyCountSelect">Select Number of Keys:</label>
+                <select id="keyCountSelect">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                </select>
+            </div>
+            <button id="startBtn" class="primary-btn">Generate Keys</button>
         </div>
-        <div class="form-group">
-            <label id="keyCountLabel" for="keyCountSelect">Number of keys:</label>
-            <select id="keyCountSelect">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                
-            </select>
-        </div>
-        <button id="startBtn">Generate Keys</button>
-        <div id="progressContainer" class="hidden">
+
+        <!-- Progress Container: Shows during key generation and is hidden initially -->
+        <div id="progressContainer" class="hidden panel">
             <div class="progress-bar">
                 <div id="progressBar"></div>
             </div>
-            <div id="progressText">0%</div>
-            <div id="progressLog">Starting...</div>
+            <p id="progressText">0%</p>
+            <p id="progressLog">Starting...</p>
         </div>
-        <div id="keyContainer" class="hidden">
-            <h3 id="generatedKeysTitle" class="hidden">Generated Keys:</h3>
+
+        <!-- Key Container: Shows when keys are generated and hidden initially -->
+        <div id="keyContainer" class="hidden panel">
+            <h2 id="generatedKeysTitle">Generated Keys</h2>
             <div id="keysList"></div>
-            <button id="copyAllBtn" class="hidden">Copy All Keys</button>
-            <div id="copyStatus" class="hidden">Copied!</div>
-            <button id="generateMoreBtn">Generate More Keys</button>
+            <button id="copyAllBtn" class="primary-btn hidden">Copy All Keys</button>
         </div>
-        <div class="footer">
-            <p>Disclaimer: This tool is for educational purposes only. Use responsibly.</p>
-            <button id="creatorChannelBtn">Contact Creator</button> <br><br>
-            <button id="telegramChannelBtn">Check out Our Telegram Channel</button>
+
+        <p id="keyCountLabel" class="hidden panel">Number of keys:</p>
+
+        <button id="generateMoreBtn" class="hidden secondary-btn">Generate More</button>
+        <button id="creatorChannelBtn" class="secondary-btn">Contact Creator</button>
+        <p id="copyStatus" class="hidden panel">Keys copied to clipboard!</p>
+        
+        <div class="footer hidden panel">
+            <button id="telegramChannelBtn" class="secondary-btn">Telegram Channel</button>
         </div>
     </div>
+
     <script>
        document.addEventListener('DOMContentLoaded', () => {
-    const EVENTS_DELAY = 18000;
-    const MAX_KEYS_PER_GAME_PER_DAY = 10;
+    const EVENTS_DELAY = 20000;
 
-    const games = {
-        1: {
-            name: 'Riding Extreme 3D',
-            appToken: 'd28721be-fd2d-4b45-869e-9f253b554e50',
-            promoId: '43e35910-c168-4634-ad4f-52fd764a843f',
-        },
-        2: {
-            name: 'Chain Cube 2048',
-            appToken: 'd1690a07-3780-4068-810f-9b5bbf2931b2',
-            promoId: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
-        },
-        3: {
-            name: 'My Clone Army',
-            appToken: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
-            promoId: 'fe693b26-b342-4159-8808-15e3ff7f8767',
-        },
-        4: {
-            name: 'Train Miner',
-            appToken: '82647f43-3f87-402d-88dd-09a90025313f',
-            promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
-        },
-        5: {
-            name: 'MergeAway',
-            appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833',
-            promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
-        },
-        6: {
-    name: 'Twerk Race 3D',
-    appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c',
-    promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c'
-        }
-    };
+const games = {
+    1: {
+        name: 'Riding Extreme 3D',
+        appToken: 'd28721be-fd2d-4b45-869e-9f253b554e50',
+        promoId: '43e35910-c168-4634-ad4f-52fd764a843f',
+    },
+    2: {
+        name: 'Chain Cube 2048',
+        appToken: 'd1690a07-3780-4068-810f-9b5bbf2931b2',
+        promoId: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
+    },
+    3: {
+        name: 'My Clone Army',
+        appToken: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
+        promoId: 'fe693b26-b342-4159-8808-15e3ff7f8767',
+    },
+    4: {
+        name: 'Train Miner',
+        appToken: '82647f43-3f87-402d-88dd-09a90025313f',
+        promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
+    },
+    5: {
+        name: 'Merge Away',
+        appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833',
+        promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4'
+    }
+};
 
     const startBtn = document.getElementById('startBtn');
     const keyCountSelect = document.getElementById('keyCountSelect');
@@ -243,20 +288,142 @@ button:hover {
     const generatedKeysTitle = document.getElementById('generatedKeysTitle');
     const gameSelect = document.getElementById('gameSelect');
     const copyStatus = document.getElementById('copyStatus');
-    const previousKeysContainer = document.getElementById('previousKeysContainer');
-    const previousKeysList = document.getElementById('previousKeysList');
     const telegramChannelBtn = document.getElementById('telegramChannelBtn');
+    const generateMoreBtn = document.getElementById('generateMoreBtn');
+    const creatorChannelBtn = document.getElementById('creatorChannelBtn');
 
-    const initializeLocalStorage = () => {
-        const now = new Date().toISOString().split('T')[0];
-        Object.values(games).forEach(game => {
-            const storageKey = `keys_generated_${game.name}`;
-            const storedData = JSON.parse(localStorage.getItem(storageKey));
-            if (!storedData || storedData.date !== now) {
-                localStorage.setItem(storageKey, JSON.stringify({ date: now, count: 0, keys: [] }));
-            }
-        });
+    const hideInitialPanel = () => {
+        document.querySelectorAll('#initialPanel').forEach(el => el.classList.add('hidden'));
     };
+
+    const showInitialPanel = () => {
+        document.querySelectorAll('#initialPanel').forEach(el => el.classList.remove('hidden'));
+    };
+
+    startBtn.addEventListener('click', async () => {
+        const gameChoice = parseInt(gameSelect.value);
+        const keyCount = parseInt(keyCountSelect.value);
+        const game = games[gameChoice];
+
+        keyCountLabel.innerText = `Number of keys: ${keyCount}`;
+
+        hideInitialPanel();
+
+        progressBar.style.width = '0%';
+        progressText.innerText = '0%';
+        progressLog.innerText = 'Starting...';
+        progressContainer.classList.remove('hidden');
+        keyContainer.classList.add('hidden');
+        generatedKeysTitle.classList.add('hidden');
+        keysList.innerHTML = '';
+        copyAllBtn.classList.add('hidden');
+        startBtn.classList.add('hidden');
+        startBtn.disabled = true;
+
+        let progress = 0;
+        const updateProgress = (increment, message) => {
+            progress += increment;
+            progressBar.style.width = `${progress}%`;
+            progressText.innerText = `${progress}%`;
+            progressLog.innerText = message;
+        };
+
+        const generateKeyProcess = async () => {
+            const clientId = generateClientId();
+            let clientToken;
+            try {
+                clientToken = await login(clientId, game.appToken);
+            } catch (error) {
+                alert(`Failed to login: ${error.message}`);
+                startBtn.disabled = false;
+                return null;
+            }
+
+            for (let i = 0; i < 11; i++) {
+                await sleep(EVENTS_DELAY * delayRandom());
+                const hasCode = await emulateProgress(clientToken, game.promoId);
+                updateProgress(7 / keyCount, 'Emulating progress...');
+                if (hasCode) {
+                    break;
+                }
+            }
+
+            try {
+                const key = await generateKey(clientToken, game.promoId);
+                updateProgress(30 / keyCount, 'Generating key...');
+                return key;
+            } catch (error) {
+                alert(`Failed to generate key: ${error.message}`);
+                return null;
+            }
+        };
+
+        const keys = await Promise.all(Array.from({ length: keyCount }, generateKeyProcess));
+
+        if (keys.length > 1) {
+            keysList.innerHTML = keys.filter(key => key).map(key =>
+                `<div class="key-item">
+                    <input type="text" value="${key}" readonly>
+                    <button class="copyKeyBtn" data-key="${key}">Copy Key</button>
+                </div>`
+            ).join('');
+            copyAllBtn.classList.remove('hidden');
+        } else if (keys.length === 1) {
+            keysList.innerHTML =
+                `<div class="key-item">
+                    <input type="text" value="${keys[0]}" readonly>
+                    <button class="copyKeyBtn" data-key="${keys[0]}">Copy Key</button>
+                </div>`;
+        }
+
+        keyContainer.classList.remove('hidden');
+        generatedKeysTitle.classList.remove('hidden');
+        document.querySelectorAll('.copyKeyBtn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const key = event.target.getAttribute('data-key');
+                navigator.clipboard.writeText(key).then(() => {
+                    copyStatus.classList.remove('hidden');
+                    setTimeout(() => copyStatus.classList.add('hidden'), 2000);
+                });
+            });
+        });
+        copyAllBtn.addEventListener('click', () => {
+            const keysText = keys.filter(key => key).join('\n');
+            navigator.clipboard.writeText(keysText).then(() => {
+                copyStatus.classList.remove('hidden');
+                setTimeout(() => copyStatus.classList.add('hidden'), 2000);
+            });
+        });
+
+        progressBar.style.width = '100%';
+        progressText.innerText = '100%';
+        progressLog.innerText = 'Complete';
+
+        showInitialPanel();
+
+        startBtn.classList.remove('hidden');
+        startBtn.disabled = false;
+    });
+
+    generateMoreBtn.addEventListener('click', () => {
+        progressContainer.classList.add('hidden');
+        keyContainer.classList.add('hidden');
+        startBtn.classList.remove('hidden');
+        keyCountSelect.classList.remove('hidden');
+        gameSelect.classList.remove('hidden');
+        generatedKeysTitle.classList.add('hidden');
+        copyAllBtn.classList.add('hidden');
+        keysList.innerHTML = '';
+        keyCountLabel.innerText = 'Number of keys:';
+    });
+
+    creatorChannelBtn.addEventListener('click', () => {
+        window.open('https://telegram.me', '_blank');
+    });
+
+    telegramChannelBtn.addEventListener('click', () => {
+        window.open('https://telegram.me/cetomovie', '_blank');
+    });
 
     const generateClientId = () => {
         const timestamp = Date.now();
@@ -337,145 +504,7 @@ button:hover {
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
     const delayRandom = () => Math.random() / 3 + 1;
-
-    initializeLocalStorage();
-
-    startBtn.addEventListener('click', async () => {
-        const gameChoice = parseInt(gameSelect.value);
-        const keyCount = parseInt(keyCountSelect.value);
-        const game = games[gameChoice];
-
-        const storageKey = `keys_generated_${game.name}`;
-        const storedData = JSON.parse(localStorage.getItem(storageKey));
-
-        if (storedData.count + keyCount > MAX_KEYS_PER_GAME_PER_DAY) {
-            alert(`You can generate only ${MAX_KEYS_PER_GAME_PER_DAY - storedData.count} more keys for ${game.name} today.`);
-            previousKeysList.innerHTML = storedData.keys.map(key =>
-                `<div class="key-item">
-                    <input type="text" value="${key}" readonly>
-                </div>`
-            ).join('');
-            previousKeysContainer.classList.remove('hidden');
-            return;
-        }
-
-        keyCountLabel.innerText = `Number of keys: ${keyCount}`;
-
-        progressBar.style.width = '0%';
-        progressText.innerText = '0%';
-        progressLog.innerText = 'Starting... \n Please wait It may take upto 1 min to Login';
-        progressContainer.classList.remove('hidden');
-        keyContainer.classList.add('hidden');
-        generatedKeysTitle.classList.add('hidden');
-        keysList.innerHTML = '';
-        keyCountSelect.classList.add('hidden');
-        gameSelect.classList.add('hidden');
-        startBtn.classList.add('hidden');
-        copyAllBtn.classList.add('hidden');
-        startBtn.disabled = true;
-
-        let progress = 0;
-        const updateProgress = (increment, message) => {
-            progress += increment;
-            progressBar.style.width = `${progress}%`;
-            progressText.innerText = `${progress}%`;
-            progressLog.innerText = message;
-        };
-
-        const generateKeyProcess = async () => {
-            const clientId = generateClientId();
-            let clientToken;
-            try {
-                clientToken = await login(clientId, game.appToken);
-            } catch (error) {
-                alert(`Failed to login: ${error.message}`);
-                startBtn.disabled = false;
-                return null;
-            }
-
-            for (let i = 0; i < 11; i++) {
-                await sleep(EVENTS_DELAY * delayRandom());
-                const hasCode = await emulateProgress(clientToken, game.promoId);
-                updateProgress(7 / keyCount, 'Emulating progress...');
-                if (hasCode) {
-                    break;
-                }
-            }
-
-            try {
-                const key = await generateKey(clientToken, game.promoId);
-                updateProgress(30 / keyCount, 'Generating key...');
-                return key;
-            } catch (error) {
-                alert(`Failed to generate key: ${error.message}`);
-                return null;
-            }
-        };
-
-        const keys = await Promise.all(Array.from({ length: keyCount }, generateKeyProcess));
-
-        if (keys.length > 1) {
-            keysList.innerHTML = keys.filter(key => key).map(key =>
-                `<div class="key-item">
-                    <input type="text" value="${key}" readonly>
-                    <button class="copyKeyBtn" data-key="${key}">Copy Key</button>
-                </div>`
-            ).join('');
-            copyAllBtn.classList.remove('hidden');
-        } else if (keys.length === 1) {
-            keysList.innerHTML =
-                `<div class="key-item">
-                    <input type="text" value="${keys[0]}" readonly>
-                    <button class="copyKeyBtn" data-key="${keys[0]}">Copy Key</button>
-                </div>`;
-        }
-
-        storedData.count += keys.filter(key => key).length;
-        storedData.keys.push(...keys.filter(key => key));
-        localStorage.setItem(storageKey, JSON.stringify(storedData));
-
-        keyContainer.classList.remove('hidden');
-        generatedKeysTitle.classList.remove('hidden');
-        document.querySelectorAll('.copyKeyBtn').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const key = event.target.getAttribute('data-key');
-                navigator.clipboard.writeText(key).then(() => {
-                    copyStatus.innerText = `Copied ${key}`;
-                    setTimeout(() => {
-                        copyStatus.innerText = '';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Could not copy text: ', err);
-                });
-            });
-        });
-
-        startBtn.disabled = false;
-        keyCountSelect.classList.remove('hidden');
-        gameSelect.classList.remove('hidden');
-        startBtn.classList.remove('hidden');
-    });
-
-    copyAllBtn.addEventListener('click', () => {
-        const allKeys = Array.from(document.querySelectorAll('.key-item input')).map(input => input.value).join('\n');
-        navigator.clipboard.writeText(allKeys).then(() => {
-            copyStatus.innerText = 'All keys copied';
-            setTimeout(() => {
-                copyStatus.innerText = '';
-            }, 2000);
-        }).catch(err => {
-            console.error('Could not copy text: ', err);
-        });
-    });
-
-    document.getElementById('creatorChannelBtn').addEventListener('click', () => {
-        window.open('https://telegram.me', '_blank');
-    });
-
-    telegramChannelBtn.addEventListener('click', () => {
-        window.open('https://telegram.me', '_blank');
-    });
 });
-    </script>
+     </script>
 </body>
 </html>
